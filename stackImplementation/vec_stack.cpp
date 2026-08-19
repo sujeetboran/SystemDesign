@@ -1,6 +1,7 @@
 #include<iostream>
 #include<vector>
 #include<initializer_list>
+#include<utility>
 #include<stdexcept>
 template<class T>
 class stack{
@@ -32,6 +33,9 @@ class stack{
         }
         bool empty() const noexcept{
             return !data.size();
+        }
+        std::size_t size() const noexcept{
+            return data.size();
         }
         void print()const{
             for (auto it = data.rbegin(); it != data.rend(); ++it) {
