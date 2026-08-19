@@ -1,0 +1,1 @@
+I am Writing solution of various problem of system design, I would not be using AI and these solution are completely written by me. 
