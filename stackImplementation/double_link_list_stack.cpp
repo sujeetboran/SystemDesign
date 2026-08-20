@@ -27,7 +27,7 @@ class stack{
         }
     public:
         stack() = default;
-        stack(const stack& other){
+        stack(const stack& other) : length(other.length){
             std::shared_ptr<node<T>> curr_node = other.head;
             while(curr_node){
                 this->push(curr_node->val);
@@ -44,6 +44,7 @@ class stack{
                     this->push(curr_node->val);
                     curr_node = curr_node->next;
                 }
+                length = other.length;
             }
             return *this;
         }
@@ -60,9 +61,11 @@ class stack{
         }
         void push(const T& val){
             push_node(std::make_shared<node<T>>(val));
+            length++;
         }
         void push(T&& val){
             push_node(std::make_shared<node<T>>(std::move(val)));
+            length++;
         }
         std::size_t size() const noexcept{
             return length;
